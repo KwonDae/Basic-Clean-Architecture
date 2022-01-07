@@ -16,10 +16,10 @@ abstract class BaseActivity<B : ViewDataBinding>(
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, layoutId)
 
-        perfomDataBinding()
+        performDataBinding()
     }
 
-    private fun perfomDataBinding() {
+    private fun performDataBinding() {
         binding.lifecycleOwner = this
         binding.executePendingBindings()
     }
