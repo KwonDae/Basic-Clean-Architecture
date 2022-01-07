@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.daewon.domain.model.HomePage
 import com.daewon.domain.usecase.GetHomePageDataUseCase
+import com.daewon.presentation.adapter.HomeCardAdapter
 import com.daewon.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -19,10 +20,13 @@ class HomePageViewModel @Inject constructor(
     val toastMsg: LiveData<String> = _toastMsg
     val homePageData: LiveData<HomePage> = _homePageData
 
-    fun getHomePageData() {
+    fun getHomePage() {
         getHomePageDataUseCase(viewModelScope) {
             if(it.status) {
                 _homePageData.value = it
+                _toastMsg.value = "홈 데이터를 불러왔습니다. \uD83D\uDE80"
+            } else {
+                _toastMsg.value = "네트워크가 원할하지 않습니다."
             }
         }
     }
