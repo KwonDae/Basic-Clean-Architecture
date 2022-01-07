@@ -8,5 +8,23 @@
     <fragment
         android:id="@+id/view_pager_fragment"
         android:name="com.daewon.presentation.home.HomeViewPagerFragment"
-        tools:layout="@layout/fragment_view_pager" />
+        tools:layout="@layout/fragment_view_pager" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.daewon.presentation.signin.SignInFragment"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signInFragment_self"
+            app:destination="@id/signInFragment"/>
+    </fragment>
+
+    <action
+        android:id="@+id/action_global_signInFragment"
+        app:destination="@id/signInFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:launchSingleTop="true" />
+
 </navigation>

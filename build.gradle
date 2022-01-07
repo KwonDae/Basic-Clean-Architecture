@@ -32,6 +32,7 @@ buildscript {
         // in the individual module build.gradle files
         //dagger hilt
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion"
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion")
     }
 }
 
