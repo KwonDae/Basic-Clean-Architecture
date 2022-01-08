@@ -10,8 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.daewon.domain.model.Card
 import com.daewon.presentation.databinding.ListItemPhotoBinding
 import com.daewon.presentation.home.HomeViewPagerFragmentDirections
+import com.daewon.presentation.photo.PhotoDetailFragmentDirections
 
-class HomeCardAdapter : ListAdapter<Card, RecyclerView.ViewHolder>(CardDiffCallback()) {
+class RecommendPhotoAdapter: ListAdapter<Card, RecyclerView.ViewHolder>(RecommendCardDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return CardViewHolder(
             ListItemPhotoBinding.inflate(
@@ -29,7 +30,7 @@ class HomeCardAdapter : ListAdapter<Card, RecyclerView.ViewHolder>(CardDiffCallb
 
     class CardViewHolder(
         private val binding: ListItemPhotoBinding
-    ) : RecyclerView.ViewHolder(binding.root) {
+    ): RecyclerView.ViewHolder(binding.root) {
         init {
             binding.setClickListener { view ->
                 binding.card?.let {
@@ -40,7 +41,7 @@ class HomeCardAdapter : ListAdapter<Card, RecyclerView.ViewHolder>(CardDiffCallb
 
         private fun navigationToPhotoDetail(cardId: Int, view: View) {
             val direction =
-                HomeViewPagerFragmentDirections.actionViewPagerFragmentToPhotoDetailFragment(cardId)
+                PhotoDetailFragmentDirections.actionPhotoDetailFragmentSelf(cardId)
             view.findNavController().navigate(direction)
         }
 
@@ -51,10 +52,9 @@ class HomeCardAdapter : ListAdapter<Card, RecyclerView.ViewHolder>(CardDiffCallb
             }
         }
     }
-
 }
 
-private class CardDiffCallback : DiffUtil.ItemCallback<Card>() {
+private class RecommendCardDiffCallback : DiffUtil.ItemCallback<Card>() {
     override fun areItemsTheSame(oldItem: Card, newItem: Card): Boolean {
         return oldItem.id == newItem.id
     }

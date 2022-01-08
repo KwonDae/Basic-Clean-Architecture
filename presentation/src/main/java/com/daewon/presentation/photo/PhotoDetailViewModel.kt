@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.daewon.domain.model.HomePage
 import com.daewon.domain.model.PhotoDetail
 import com.daewon.domain.usecase.GetPhotoDetailUseCase
+import com.daewon.presentation.adapter.RecommendPhotoAdapter
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -21,6 +22,10 @@ class PhotoDetailViewModel @Inject constructor(
     val photoDetailData: LiveData<PhotoDetail> = _photoDetailData
 
     val isRefreshLoading = MutableLiveData<Boolean>()
+
+    private val recommendPhotoAdapter = RecommendPhotoAdapter()
+
+    fun getAdapter() = recommendPhotoAdapter
 
     fun getPhotoDetail(cardId: Int) {
         isRefreshLoading.value = true
