@@ -13,7 +13,9 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/refresh_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:onRefreshListener="@{()->vm.getHomePage()}"
+        app:refreshing="@{vm.isRefreshLoading}">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -41,7 +43,9 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 android:nestedScrollingEnabled="true"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                app:items="@{vm.homePageData.cards}"
+                app:listAdapter="@{vm.cardAdapter}"
+                app:orientation="@{androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL}"/>
 
             <View
                 android:id="@+id/line"
@@ -62,7 +66,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                app:items="@{vm.homePageData.users}"
+                app:listAdapter="@{vm.userAdapter}"
+                app:orientation="@{androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL}"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

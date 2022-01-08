@@ -19,7 +19,10 @@ class SignInFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSignInBinding.inflate(inflater, container, false)
+        binding = FragmentSignInBinding.inflate(inflater, container, false).apply {
+            vm = viewModel
+            lifecycleOwner = viewLifecycleOwner
+        }
         return binding.root
 
     }

@@ -1,4 +1,4 @@
-package com.daewon.data.entity
+package com.daewon.data.response
 
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
