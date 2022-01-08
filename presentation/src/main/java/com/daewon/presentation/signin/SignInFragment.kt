@@ -23,6 +23,8 @@ class SignInFragment: Fragment() {
             vm = viewModel
             lifecycleOwner = viewLifecycleOwner
         }
+        context ?: return binding.root
+
         return binding.root
 
     }

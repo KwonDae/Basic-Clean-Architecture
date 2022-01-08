@@ -70,4 +70,7 @@ dependencies {
     kapt("androidx.room:room-compiler:$roomVersion")
     // optional - Kotlin Extensions and Coroutines support for Room
     implementation("androidx.room:room-ktx:$roomVersion")
+
+    //paging3
+    implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
 }

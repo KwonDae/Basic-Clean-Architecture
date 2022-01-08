@@ -3,7 +3,7 @@ package com.daewon.presentation.adapter
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.daewon.presentation.home.HomePageFragment
-import com.daewon.presentation.photo.PhotoFeedFragment
+import com.daewon.presentation.photofeed.PhotoFeedFragment
 import java.lang.IndexOutOfBoundsException
 
 const val HOME_PAGE_INDEX = 0

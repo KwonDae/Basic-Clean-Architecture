@@ -8,8 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 object RecyclerViewDataBinding {
 
     @JvmStatic
-    @BindingAdapter(value = ["bind:listAdapter", "bind:orientation", "bind:items"], requireAll = false)
-    fun bindRecyclerViewListAdapter(recyclerView: RecyclerView, adapter: ListAdapter<*, *>, orientation: Int = RecyclerView.HORIZONTAL, items: List<*>?) {
+    @BindingAdapter(
+        value = ["bind:listAdapter", "bind:orientation", "bind:items"],
+        requireAll = false
+    )
+    fun bindRecyclerViewListAdapter(
+        recyclerView: RecyclerView,
+        adapter: ListAdapter<*, *>,
+        orientation: Int = RecyclerView.HORIZONTAL,
+        items: List<*>?
+    ) {
         recyclerView.setHasFixedSize(true)
 
         recyclerView.layoutManager = LinearLayoutManager(recyclerView.context, orientation, false)

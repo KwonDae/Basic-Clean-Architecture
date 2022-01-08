@@ -9,9 +9,6 @@ import com.daewon.presentation.adapter.HomeCardAdapter
 import com.daewon.presentation.adapter.HomeUserAdapter
 import com.daewon.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.flatMapLatest
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -45,15 +42,5 @@ class HomePageViewModel @Inject constructor(
             }
         }
     }
-
-//   fun getHomePage() {
-//       getHomePageDataUseCase(viewModelScope) {
-//            viewModelScope.launch {
-//                it.collectLatest {
-//                    _homePageData.value = it
-//                }
-//            }
-//       }
-//   }
 
 }

@@ -6,12 +6,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.daewon.domain.model.User
-import com.daewon.presentation.databinding.HomeListItemUserBinding
+import com.daewon.presentation.databinding.ListItemUserBinding
 
 class HomeUserAdapter : ListAdapter<User, RecyclerView.ViewHolder>(UserDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return UserViewHolder(
-            HomeListItemUserBinding.inflate(
+            ListItemUserBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -25,7 +25,7 @@ class HomeUserAdapter : ListAdapter<User, RecyclerView.ViewHolder>(UserDiffCallb
     }
 
     class UserViewHolder(
-        private val binding: HomeListItemUserBinding
+        private val binding: ListItemUserBinding
     ): RecyclerView.ViewHolder(binding.root) {
         init {
 

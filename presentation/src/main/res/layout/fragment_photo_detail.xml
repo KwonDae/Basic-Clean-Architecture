@@ -22,8 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:onRefreshListener="@{()->vm.getPhotoDetail(card.id)}"
-        app:refreshing="@{vm.isRefreshLoading}"
-        >
+        app:refreshing="@{vm.isRefreshLoading}">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -32,9 +31,10 @@
             <ImageView
                 android:id="@+id/main_imageView"
                 android:layout_width="match_parent"
-                android:layout_height="350dp"
+                android:layout_height="0dp"
                 android:scaleType="fitXY"
                 app:imageFromUrl="@{card.img_url}"
+                app:layout_constraintBottom_toTopOf="@id/main_image_guide_textView"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -43,6 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="카드 설명"
+                app:layout_constraintBottom_toTopOf="@id/main_image_textView"
                 app:layout_constraintTop_toBottomOf="@id/main_imageView" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -51,6 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{card.description}"
+                app:layout_constraintBottom_toTopOf="@id/line"
                 app:layout_constraintTop_toBottomOf="@id/main_image_guide_textView" />
 
             <View
@@ -59,6 +61,7 @@
                 android:layout_height="4dp"
                 android:layout_marginTop="40dp"
                 android:background="@color/green"
+                app:layout_constraintBottom_toTopOf="@id/nickname_textView"
                 app:layout_constraintTop_toBottomOf="@id/main_image_textView" />
 
             <TextView
@@ -66,6 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{@string/nickname(user.nickname)}"
+                app:layout_constraintBottom_toTopOf="@id/introduce_textView"
                 app:layout_constraintTop_toBottomOf="@id/line"
                 tools:text="작성자: aaa" />
 
@@ -74,6 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{@string/introduce(user.introduce)}"
+                app:layout_constraintBottom_toTopOf="@id/line2"
                 app:layout_constraintTop_toBottomOf="@id/nickname_textView"
                 tools:text="소개: a소개합니다." />
 
@@ -83,6 +88,7 @@
                 android:layout_height="4dp"
                 android:layout_marginTop="20dp"
                 android:background="@color/green"
+                app:layout_constraintBottom_toTopOf="@id/recommend_card_textView"
                 app:layout_constraintTop_toBottomOf="@id/introduce_textView" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -92,18 +98,20 @@
                 android:layout_height="wrap_content"
                 android:text="추천 카드 : 카드를 클릭해보세요."
                 android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@id/recommend_card_recyclerView"
                 app:layout_constraintTop_toBottomOf="@id/line2" />
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recommend_card_recyclerView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        app:layout_constraintTop_toBottomOf="@id/recommend_card_textView"
-                        app:items="@{vm.photoDetailData.recommendCards}"
-                        app:listAdapter="@{vm.adapter}"
-                        app:orientation="@{androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL}"
-                        />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recommend_card_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="32dp"
+                app:items="@{vm.photoDetailData.recommendCards}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recommend_card_textView"
+                app:listAdapter="@{vm.adapter}"
+                app:orientation="@{androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL}" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

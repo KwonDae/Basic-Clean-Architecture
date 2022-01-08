@@ -6,27 +6,34 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import com.daewon.presentation.databinding.FragmentPhotoDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class PhotoDetailFragment: Fragment() {
+class PhotoDetailFragment : Fragment() {
     private lateinit var binding: FragmentPhotoDetailBinding
     private val viewModel: PhotoDetailViewModel by viewModels()
     private val args: PhotoDetailFragmentArgs by navArgs()
+    private var isFirst: Boolean = true
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentPhotoDetailBinding.inflate(inflater,container, false).apply {
+        binding = FragmentPhotoDetailBinding.inflate(inflater, container, false).apply {
             vm = viewModel
             lifecycleOwner = viewLifecycleOwner
         }
+        context ?: return binding.root
 
-        search(args.id)
+        if (isFirst) {
+            isFirst = false
+            search(args.id)
+        }
 
         viewModel.photoDetailData.observe(viewLifecycleOwner) {
             binding.card = it.card

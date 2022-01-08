@@ -11,4 +11,5 @@ java {
 dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineCoreVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:1.6.10"
+    implementation group: 'javax.inject', name: 'javax.inject', version: '1'
 }

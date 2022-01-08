@@ -4,6 +4,7 @@ import com.daewon.domain.repository.RemoteRepository
 import com.daewon.domain.usecase.GetHomePageDataUseCase
 import com.daewon.domain.usecase.GetLoginUseCase
 import com.daewon.domain.usecase.GetPhotoDetailUseCase
+import com.daewon.domain.usecase.GetPhotoFeedUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,5 +31,11 @@ object UseCaseModule {
     @Provides
     fun provideGetPhotoDetailUseCase(repository: RemoteRepository): GetPhotoDetailUseCase {
         return GetPhotoDetailUseCase(repository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideGetPhotoFeedUseCase(repository: RemoteRepository): GetPhotoFeedUseCase {
+        return GetPhotoFeedUseCase(repository)
     }
 }

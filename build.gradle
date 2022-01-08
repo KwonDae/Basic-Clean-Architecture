@@ -15,7 +15,7 @@ buildscript {
         swipeRefreshLayoutVersion = '1.1.0'
         timberVersion = '4.7.1'
         materialVersion = '1.4.0'
-        pagingVersion = '3.0.1'
+        pagingVersion = '3.1.0'
         okhttpVersion = '4.9.3'
         hiltLifecycleVersion = '1.0.0-alpha03'
     }

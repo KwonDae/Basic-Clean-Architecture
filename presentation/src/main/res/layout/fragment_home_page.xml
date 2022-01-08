@@ -42,7 +42,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                android:nestedScrollingEnabled="true"
                 app:items="@{vm.homePageData.cards}"
                 app:listAdapter="@{vm.cardAdapter}"
                 app:orientation="@{androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL}"/>

@@ -3,11 +3,9 @@ package com.daewon.data.service
 import com.daewon.data.response.HomePageResponse
 import com.daewon.data.entity.UserEntity
 import com.daewon.data.response.PhotoDetailResponse
+import com.daewon.data.response.PhotoFeedResponse
 import com.daewon.data.response.SignInResponse
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface ApiService {
     // SignIn
@@ -18,6 +16,9 @@ interface ApiService {
     suspend fun getHomePageData(): HomePageResponse
 
     @GET("cards/{cardId}")
-    suspend fun getPhotoDetailData(@Path("cardId")cardId: Int) : PhotoDetailResponse
+    suspend fun getPhotoDetailData(@Path("cardId") cardId: Int): PhotoDetailResponse
+
+    @GET("cards")
+    suspend fun getPhotoFeed(@Query("page") page: Int): PhotoFeedResponse
 
 }
