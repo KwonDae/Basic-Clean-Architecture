@@ -3,6 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
 
         <variable
             name="card"
@@ -14,5 +17,6 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:scaleType="fitXY"
+        android:onClick="@{clickListener}"
         app:imageFromUrl="@{card.img_url}" />
 </layout>

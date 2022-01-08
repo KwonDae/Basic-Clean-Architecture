@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">OhouseApp</string>
     <string name="home_page_card_guide">인기 카드 : 카드를 클릭해보세요.</string>
+    <string name="nickname">작성자: %s</string>
+    <string name="introduce">소개: %s</string>
 </resources>

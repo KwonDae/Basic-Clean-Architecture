@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="card"
+            type="com.daewon.domain.model.Card" />
+
+        <variable
+            name="user"
+            type="com.daewon.domain.model.User" />
+
+        <variable
+            name="vm"
+            type="com.daewon.presentation.photo.PhotoDetailViewModel" />
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:onRefreshListener="@{()->vm.getPhotoDetail(card.id)}"
+        app:refreshing="@{vm.isRefreshLoading}"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/main_imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:imageFromUrl="@{card.img_url}"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/main_image_textView"
+                style="@style/Widget.MaterialComponents.TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="카드 설명"
+                app:layout_constraintTop_toBottomOf="@id/main_imageView" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_marginTop="40dp"
+                android:background="@color/green"
+                app:layout_constraintTop_toBottomOf="@id/main_image_textView" />
+
+            <TextView
+                android:id="@+id/nickname_textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{@string/nickname(user.nickname)}"
+                app:layout_constraintTop_toBottomOf="@id/line"
+                tools:text="작성자: aaa" />
+
+            <TextView
+                android:id="@+id/introduce_textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{@string/introduce(user.introduce)}"
+                app:layout_constraintTop_toBottomOf="@id/nickname_textView"
+                tools:text="소개: a소개합니다." />
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/green"
+                app:layout_constraintTop_toBottomOf="@id/introduce_textView" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/recommend_card_textView"
+                style="@style/Widget.MaterialComponents.TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="추천 카드 : 카드를 클릭해보세요."
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/line2" />
+
+            <!--        <androidx.recyclerview.widget.RecyclerView-->
+            <!--            android:id="@+id/recommend_card_recyclerView"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:layout_marginTop="10dp"-->
+            <!--            app:layout_constraintTop_toBottomOf="@id/recommend_card_textView"-->
+            <!--            app:items="@{}"-->
+            <!--            app:listAdapter="@{}"-->
+            <!--            app:orientation="@{androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL}"-->
+            <!--            />-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</layout>

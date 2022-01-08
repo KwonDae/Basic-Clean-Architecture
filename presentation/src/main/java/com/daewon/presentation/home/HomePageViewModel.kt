@@ -37,7 +37,7 @@ class HomePageViewModel @Inject constructor(
         getHomePageDataUseCase(viewModelScope) {
             if(it.status) {
                 _homePageData.value = it
-                _toastMsg.value = "홈 데이터를 불러왔습니다. \uD83D\uDE80"
+//                _toastMsg.value = "홈 데이터를 불러왔습니다. \uD83D\uDE80"
                 isRefreshLoading.value = false
             } else {
                 _toastMsg.value = "네트워크가 원할하지 않습니다."

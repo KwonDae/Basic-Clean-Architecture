@@ -9,22 +9,44 @@
         android:id="@+id/view_pager_fragment"
         android:name="com.daewon.presentation.home.HomeViewPagerFragment"
         tools:layout="@layout/fragment_view_pager" >
+
+        <action
+            android:id="@+id/action_view_pager_fragment_to_photoDetailFragment"
+            app:destination="@id/photo_detail_fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"/>
     </fragment>
 
     <fragment
-        android:id="@+id/signInFragment"
+        android:id="@+id/sign_in_fragment"
         android:name="com.daewon.presentation.signin.SignInFragment"
         tools:layout="@layout/fragment_sign_in" >
         <action
             android:id="@+id/action_signInFragment_self"
-            app:destination="@id/signInFragment"/>
+            app:destination="@id/sign_in_fragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/photo_detail_fragment"
+        android:name="com.daewon.presentation.photo.PhotoDetailFragment"
+        tools:layout="@layout/fragment_photo_detail" >
+        <action
+            android:id="@+id/action_photo_detail_fragment_self"
+            app:destination="@id/photo_detail_fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"/>
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 
     <action
         android:id="@+id/action_global_signInFragment"
-        app:destination="@id/signInFragment"
+        app:destination="@id/sign_in_fragment"
         app:enterAnim="@anim/nav_default_enter_anim"
         app:exitAnim="@anim/nav_default_exit_anim"
         app:launchSingleTop="true" />
+
 
 </navigation>

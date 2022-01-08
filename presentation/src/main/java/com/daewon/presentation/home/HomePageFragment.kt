@@ -20,7 +20,6 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class HomePageFragment : Fragment() {
     private lateinit var binding: FragmentHomePageBinding
-    private var getHomePageJob: Job? = null
     private val viewModel: HomePageViewModel by viewModels()
 
     override fun onCreateView(

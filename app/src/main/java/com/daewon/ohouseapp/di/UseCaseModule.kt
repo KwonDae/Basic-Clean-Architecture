@@ -3,6 +3,7 @@ package com.daewon.ohouseapp.di
 import com.daewon.domain.repository.RemoteRepository
 import com.daewon.domain.usecase.GetHomePageDataUseCase
 import com.daewon.domain.usecase.GetLoginUseCase
+import com.daewon.domain.usecase.GetPhotoDetailUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,5 +24,11 @@ object UseCaseModule {
     @Provides
     fun provideGetLoginUseCase(repository: RemoteRepository): GetLoginUseCase {
         return GetLoginUseCase(repository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideGetPhotoDetailUseCase(repository: RemoteRepository): GetPhotoDetailUseCase {
+        return GetPhotoDetailUseCase(repository)
     }
 }
