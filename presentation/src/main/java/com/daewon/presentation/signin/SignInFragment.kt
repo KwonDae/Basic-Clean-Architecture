@@ -54,8 +54,7 @@ class SignInFragment: Fragment() {
 
             successLogin.observe(viewLifecycleOwner) {
                 Toast.makeText(context, "로그인 성공", Toast.LENGTH_SHORT).show()
-                val direction = SignInFragmentDirections.actionSignInFragmentToViewPagerFragment()
-                findNavController().navigate(direction)
+                findNavController().popBackStack()
             }
         }
     }

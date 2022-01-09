@@ -32,7 +32,7 @@
             android:layout_marginTop="4dp"
             android:hint="비밀번호"
             android:inputType="textPassword"
-            android:text="@={vm.pw}"
+            android:text="@={vm.pwd}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"

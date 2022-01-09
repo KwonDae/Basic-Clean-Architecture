@@ -59,7 +59,6 @@ class RemoteRepositoryImpl @Inject constructor(
     // RemoteMediator
 //    override fun <T> getPhotoFeedData(page: Int): Flow<T> {
 //        val pagingSourceFactory = { cardDatabase.cardsDao().searchAllCards() }
-//        Log.d("로그", "getPhotoFeedData: ")
 //        @OptIn(ExperimentalPagingApi::class)
 //        return Pager(
 //            config = PagingConfig(

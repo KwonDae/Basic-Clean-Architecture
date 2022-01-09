@@ -6,16 +6,18 @@ import androidx.lifecycle.viewModelScope
 import com.daewon.domain.model.SignInRes
 import com.daewon.domain.usecase.GetLoginUseCase
 import com.daewon.presentation.base.BaseViewModel
+import com.daewon.presentation.signin.EncryptedFileAuthenticator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class SignInViewModel @Inject constructor(
-    private val getLoginUseCase: GetLoginUseCase
+    private val getLoginUseCase: GetLoginUseCase,
+    private val encryptedFileAuthenticator: EncryptedFileAuthenticator
 ) : BaseViewModel() {
 
     val id: MutableLiveData<String> = MutableLiveData("")
-    val pw: MutableLiveData<String> = MutableLiveData("")
+    val pwd: MutableLiveData<String> = MutableLiveData("")
     private val _isIdEmpty: MutableLiveData<Unit> = MutableLiveData()
     private val _isPwEmpty: MutableLiveData<Unit> = MutableLiveData()
     private val _loginErrorMsg: MutableLiveData<String> = MutableLiveData()
@@ -28,21 +30,22 @@ class SignInViewModel @Inject constructor(
 
     fun onSignInClick() {
         val id = id.value.toString().trim()
-        val pw = pw.value.toString().trim()
+        val pwd = pwd.value.toString().trim()
 
         when {
             id.isEmpty() -> {
                 _isIdEmpty.value = Unit
             }
-            pw.isEmpty() -> {
+            pwd.isEmpty() -> {
                 _isPwEmpty.value = Unit
             }
             else -> {
-                getLoginUseCase(id, pw, viewModelScope) {
+                getLoginUseCase(id, pwd, viewModelScope) {
                     if (it.status) {
                         // 로그인 성공
                         isLogin.value = true
                         _successLogin.value = Unit
+                        encryptedFileAuthenticator.signIn(id,pwd,viewModelScope)
                     } else {
                         // 로그인 실패
                         it.errorMsg?.let { errorMsg ->

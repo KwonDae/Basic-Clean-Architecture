@@ -1,6 +1,7 @@
 package com.daewon.ohouseapp.di
 
 import android.app.Application
+import android.content.Context
 import com.daewon.data.api.ApiService
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -24,6 +25,11 @@ internal object ApiModule {
     private const val WRITE_TIMEOUT = 15L
     private const val READ_TIMEOUT = 15L
     private const val BASE_URL = "http://3.34.129.166:8087/"
+
+
+    @Provides
+    @Singleton
+    fun provideContext(app: Application): Context = app
 
     @Provides
     fun provideGson(): Gson = GsonBuilder().create()
