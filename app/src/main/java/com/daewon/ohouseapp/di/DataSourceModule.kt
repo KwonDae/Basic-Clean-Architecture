@@ -2,6 +2,8 @@ package com.daewon.ohouseapp.di
 
 import com.daewon.data.remote.CardRemoteDataSource
 import com.daewon.data.remote.CardRemoteDataSourceImpl
+import com.daewon.data.signin.SignInRemoteDataSource
+import com.daewon.data.signin.SignInRemoteDataSourceImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,6 +17,12 @@ object DataSourceModule {
     @Singleton
     @Provides
     fun provideCardRemoteDataSource(source: CardRemoteDataSourceImpl): CardRemoteDataSource {
+        return source
+    }
+
+    @Singleton
+    @Provides
+    fun provideSignInRemoteDataSource(source: SignInRemoteDataSourceImpl): SignInRemoteDataSource {
         return source
     }
 }

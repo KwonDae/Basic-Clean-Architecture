@@ -1,12 +1,10 @@
 package com.daewon.domain.repository
 
-import com.daewon.domain.model.Card
-import com.daewon.domain.model.HomePage
-import com.daewon.domain.model.PhotoDetail
-import com.daewon.domain.model.PhotoFeed
+import com.daewon.domain.model.*
 import kotlinx.coroutines.flow.Flow
 
 interface RemoteRepository {
+    suspend fun signIn(signIn: SignIn): SignInRes
     suspend fun getHomePageData() : HomePage
     suspend fun getPhotoDetailData(
         cardId: Int

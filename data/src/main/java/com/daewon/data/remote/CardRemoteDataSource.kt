@@ -7,7 +7,6 @@ import com.daewon.data.response.PhotoDetailResponse
 import com.daewon.data.response.PhotoFeedResponse
 
 interface CardRemoteDataSource {
-    suspend fun signIn(user: UserEntity): SignInResponse
     suspend fun getHomePageData(): HomePageResponse
     suspend fun getPhotoDetailData(cardId: Int): PhotoDetailResponse
     suspend fun getPhotoFeedData(page: Int): PhotoFeedResponse

@@ -9,20 +9,31 @@ import com.daewon.data.mapper.mapperToPhotoDetailData
 import com.daewon.data.remote.CardRemoteDataSource
 import com.daewon.data.api.ApiService
 import com.daewon.data.db.CardDatabase
-import com.daewon.domain.model.HomePage
-import com.daewon.domain.model.PhotoDetail
+import com.daewon.data.signin.SignInRemoteDataSource
+import com.daewon.domain.model.*
 import com.daewon.domain.repository.RemoteRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
+import kotlin.math.sign
 
 class RemoteRepositoryImpl @Inject constructor(
     private val cardRemoteDataSource: CardRemoteDataSource,
+    private val signInRemoteDataSource: SignInRemoteDataSource,
     private val apiService: ApiService,
     private val cardDatabase: CardDatabase
 ) : RemoteRepository {
 
     companion object {
         private const val NETWORK_PAGE_SIZE = 20
+    }
+
+    override suspend fun signIn(signIn: SignIn): SignInRes {
+        val result = signInRemoteDataSource.signIn(signIn)
+        return SignInRes(
+            result.status,
+            result.userId,
+            result.errorMsg
+        )
     }
 
     override suspend fun getHomePageData(): HomePage {

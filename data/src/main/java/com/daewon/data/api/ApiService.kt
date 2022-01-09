@@ -1,16 +1,16 @@
 package com.daewon.data.api
 
 import com.daewon.data.response.HomePageResponse
-import com.daewon.data.entity.UserEntity
 import com.daewon.data.response.PhotoDetailResponse
 import com.daewon.data.response.PhotoFeedResponse
 import com.daewon.data.response.SignInResponse
+import com.daewon.domain.model.SignIn
 import retrofit2.http.*
 
 interface ApiService {
     // 로그인
     @POST("users/sign_in")
-    suspend fun signIn(@Body user: UserEntity): SignInResponse
+    suspend fun signIn(@Body signIn: SignIn): SignInResponse
 
     // 홈 데이터 가져오기
     @GET("home")

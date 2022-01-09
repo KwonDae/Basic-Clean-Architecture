@@ -91,6 +91,9 @@ dependencies {
     // Room
     implementation "androidx.room:room-runtime:$roomVersion"
 
-    //paging3
+    // paging3
     implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
+
+    // encryptedSharedPreference
+    implementation "androidx.security:security-crypto:$encryptedSharedPreferenceVersion"
 }

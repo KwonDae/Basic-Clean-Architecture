@@ -8,8 +8,7 @@ abstract class BaseViewModel: ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>(false)
     val isLoading: LiveData<Boolean> get() = _isLoading
 
-    private val _isLogin = MutableLiveData<Boolean>(false)
-    val isLogin: LiveData<Boolean> get() = _isLogin
+    var isLogin = MutableLiveData<Boolean>(false)
 
     fun showProgress() {
         _isLoading.value = true
