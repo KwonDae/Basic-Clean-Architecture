@@ -6,7 +6,7 @@
 
         <variable
             name="vm"
-            type="com.daewon.presentation.signin.SignInViewModel" />
+            type="com.daewon.presentation.viewmodels.SignInViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -21,14 +21,17 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/signUp_button"
+                style="@style/TextAppearance.MaterialComponents.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
+                android:layout_marginEnd="12dp"
                 android:text="가입"
                 android:theme="@style/Widget.MaterialComponents.Button.TextButton" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/signIn_button"
+                style="@style/TextAppearance.MaterialComponents.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"

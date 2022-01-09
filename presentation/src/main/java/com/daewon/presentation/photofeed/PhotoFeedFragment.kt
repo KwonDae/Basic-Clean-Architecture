@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.daewon.presentation.adapter.PhotoFeedAdapter
 import com.daewon.presentation.databinding.FragmentPhotoFeedBinding
-import com.daewon.presentation.databinding.ListItemPhotoFeedBinding
+import com.daewon.presentation.viewmodels.PhotoFeedViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest

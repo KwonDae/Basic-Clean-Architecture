@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.daewon.presentation.databinding.FragmentSignInBinding
+import com.daewon.presentation.viewmodels.SignInViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

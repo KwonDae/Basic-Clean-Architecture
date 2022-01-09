@@ -1,8 +1,7 @@
-package com.daewon.presentation.signin
+package com.daewon.presentation.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.daewon.domain.repository.RemoteRepository
 import com.daewon.domain.usecase.GetLoginUseCase
 import com.daewon.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

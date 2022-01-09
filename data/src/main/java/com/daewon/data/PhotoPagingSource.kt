@@ -19,6 +19,8 @@ class PhotoPagingSource @Inject constructor(
             val nextPageNumber = params.key ?: PHOTO_STARTING_PAGE_INDEX
             val response = service.getPhotoFeed(page = nextPageNumber)
 
+            // page6부터는 []로 넘어온다.
+            // Exception 처리
             if(response.cards.isNullOrEmpty()){
                 return LoadResult.Error(Exception())
             }

@@ -9,8 +9,6 @@ class GetLoginUseCase(private val remoteRepository: RemoteRepository) {
         id: String,
         pw: String,
         scope: CoroutineScope
-
     ) {
-
     }
 }

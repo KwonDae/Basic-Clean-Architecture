@@ -1,4 +1,4 @@
-package com.daewon.presentation.home
+package com.daewon.presentation.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

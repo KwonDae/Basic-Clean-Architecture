@@ -15,7 +15,7 @@
 
         <variable
             name="vm"
-            type="com.daewon.presentation.photo.PhotoDetailViewModel" />
+            type="com.daewon.presentation.viewmodels.PhotoDetailViewModel" />
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
