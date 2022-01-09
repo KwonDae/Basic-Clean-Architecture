@@ -40,10 +40,20 @@ class PhotoFeedViewModel @Inject constructor(
     }
 
 
-//    fun getPhotoFeed(page: Int): Flow<PagingData<PhotoFeed>> {
-//        currentPageValue = page
-//        val newResult: Flow<PagingData<PhotoFeed>> = getPhotoFeedUseCase(page =  currentPageValue, scope = viewModelScope) {
-//            it as Flow<PagingData<PhotoFeed>>
-//        }
+//    // RemoteMediator
+//    fun searchPhoto(): Flow<PagingData<Card>> {
+//        isRefreshLoading.value = true
+//        val newResult = getPhotoFeedUseCase
+//            .execute<PagingData<TempEntity>>(page = FIRST_PAGE)
+//            .map { pagingData ->
+//                pagingData.map {
+//                    Card(it.userId, it.imgUrl, it.description, it.id)
+//                }
+//            }
+//            .cachedIn(viewModelScope)
+//        _currentSearchResult = newResult
+//        isRefreshLoading.value = false
+//        return newResult
 //    }
+
 }

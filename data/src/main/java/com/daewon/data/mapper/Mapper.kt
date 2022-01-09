@@ -51,6 +51,15 @@ fun mapperToCard(cardEntity: CardEntity): Card {
     )
 }
 
+fun mapperToCardEntity(card: Card): CardEntity {
+    return CardEntity(
+        card.userId,
+        card.imgUrl,
+        card.description,
+        card.id
+    )
+}
+
 fun mapperToListUser(users: List<UserEntity>): List<User> {
     return users.toList().map {
         User(

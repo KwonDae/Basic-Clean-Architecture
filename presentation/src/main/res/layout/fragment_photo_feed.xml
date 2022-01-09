@@ -11,11 +11,13 @@
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:onRefreshListener="@{()->vm.searchPhoto()}"
         app:refreshing="@{vm.isRefreshLoading}"
         >
+<!--        app:onRefreshListener="@{()->vm.searchPhoto()}"-->
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

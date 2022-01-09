@@ -18,5 +18,5 @@
         android:layout_height="100dp"
         android:scaleType="fitXY"
         android:onClick="@{clickListener}"
-        app:imageFromUrl="@{card.img_url}" />
+        app:imageFromUrl="@{card.imgUrl}" />
 </layout>

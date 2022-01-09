@@ -31,7 +31,7 @@ class PhotoDetailFragment : Fragment() {
 
         if (isFirst) {
             isFirst = false
-            search(args.id)
+            getData(args.id)
         }
 
         viewModel.photoDetailData.observe(viewLifecycleOwner) {
@@ -42,7 +42,7 @@ class PhotoDetailFragment : Fragment() {
         return binding.root
     }
 
-    private fun search(cardId: Int) {
+    private fun getData(cardId: Int) {
         viewModel.getPhotoDetail(cardId)
     }
 

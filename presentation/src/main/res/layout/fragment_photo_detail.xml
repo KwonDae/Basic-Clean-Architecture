@@ -33,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:scaleType="fitXY"
-                app:imageFromUrl="@{card.img_url}"
+                app:imageFromUrl="@{card.imgUrl}"
                 app:layout_constraintBottom_toTopOf="@id/main_image_guide_textView"
                 app:layout_constraintTop_toTopOf="parent" />
 

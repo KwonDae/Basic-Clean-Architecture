@@ -6,11 +6,11 @@ import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "user")
 data class UserEntity(
-    @SerializedName("nickname")
+    @field:SerializedName("nickname")
     val nickname: String?,
-    @SerializedName("introduction")
+    @field:SerializedName("introduction")
     val introduce: String?,
     @PrimaryKey(autoGenerate = false)
-    @SerializedName("id")
+    @field:SerializedName("id")
     val id: Int
 )

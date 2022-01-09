@@ -5,7 +5,7 @@ import com.daewon.data.response.HomePageResponse
 import com.daewon.data.response.PhotoDetailResponse
 import com.daewon.data.response.PhotoFeedResponse
 import com.daewon.data.response.SignInResponse
-import com.daewon.data.service.ApiService
+import com.daewon.data.api.ApiService
 import javax.inject.Inject
 
 class CardRemoteDataSourceImpl @Inject constructor(private val apiService: ApiService) :

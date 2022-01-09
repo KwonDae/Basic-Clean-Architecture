@@ -1,4 +1,4 @@
-package com.daewon.data.service
+package com.daewon.data.api
 
 import com.daewon.data.response.HomePageResponse
 import com.daewon.data.entity.UserEntity
