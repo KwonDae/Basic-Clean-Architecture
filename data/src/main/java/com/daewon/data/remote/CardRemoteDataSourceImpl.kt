@@ -1,11 +1,10 @@
 package com.daewon.data.remote
 
-import com.daewon.data.entity.UserEntity
+import com.daewon.data.PHOTO_PER_PAGE_INDEX
+import com.daewon.data.api.ApiService
 import com.daewon.data.response.HomePageResponse
 import com.daewon.data.response.PhotoDetailResponse
 import com.daewon.data.response.PhotoFeedResponse
-import com.daewon.data.response.SignInResponse
-import com.daewon.data.api.ApiService
 import javax.inject.Inject
 
 class CardRemoteDataSourceImpl @Inject constructor(
@@ -22,6 +21,6 @@ class CardRemoteDataSourceImpl @Inject constructor(
     }
 
     override suspend fun getPhotoFeedData(page: Int): PhotoFeedResponse {
-        return apiService.getPhotoFeed(page)
+        return apiService.getPhotoFeed(page, PHOTO_PER_PAGE_INDEX)
     }
 }

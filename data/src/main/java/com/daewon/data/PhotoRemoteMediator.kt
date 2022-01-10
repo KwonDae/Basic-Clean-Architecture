@@ -14,10 +14,11 @@ import java.io.IOException
 import javax.inject.Inject
 
 const val PHOTO_STARTING_PAGE_INDEX = 1
+const val PHOTO_PER_PAGE_INDEX = 20
 
 @OptIn(ExperimentalPagingApi::class)
 class PhotoRemoteMediator @Inject constructor(
-    private val service: ApiService,
+    private val apiService: ApiService,
     private val cardDatabase: CardDatabase
 ) : RemoteMediator<Int, Card>() {
 
@@ -52,7 +53,7 @@ class PhotoRemoteMediator @Inject constructor(
         }
 
         try {
-            val apiResponse = service.getPhotoFeed(page)
+            val apiResponse = apiService.getPhotoFeed(page, PHOTO_PER_PAGE_INDEX)
 
             val cards = apiResponse.cards
             val endOfPaginationReached = cards.isNullOrEmpty()

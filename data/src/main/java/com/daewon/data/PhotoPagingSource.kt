@@ -8,13 +8,13 @@ import com.daewon.domain.model.Card
 import javax.inject.Inject
 
 class PhotoPagingSource @Inject constructor(
-    private val service: ApiService,
+    private val apiService: ApiService,
 ): PagingSource<Int, Card>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Card> {
         return try {
             val nextPageNumber = params.key ?: PHOTO_STARTING_PAGE_INDEX
-            val response = service.getPhotoFeed(page = nextPageNumber)
+            val response = apiService.getPhotoFeed(page = nextPageNumber, PHOTO_PER_PAGE_INDEX)
 
             // page6부터는 []로 넘어온다.
             // Exception 처리
