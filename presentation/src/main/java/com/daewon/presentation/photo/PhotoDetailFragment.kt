@@ -16,7 +16,6 @@ class PhotoDetailFragment : Fragment() {
     private lateinit var binding: FragmentPhotoDetailBinding
     private val viewModel: PhotoDetailViewModel by viewModels()
     private val args: PhotoDetailFragmentArgs by navArgs()
-    private var isFirst: Boolean = true
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,14 +28,13 @@ class PhotoDetailFragment : Fragment() {
         }
         context ?: return binding.root
 
-        if (isFirst) {
-            isFirst = false
-            getData(args.id)
-        }
-
         viewModel.photoDetailData.observe(viewLifecycleOwner) {
             binding.card = it.card
             binding.user = it.user
+        }
+
+        if (savedInstanceState == null) {
+            getData(args.id)
         }
 
         return binding.root

@@ -32,8 +32,6 @@ class HomePageFragment : Fragment() {
     }
 
     private fun init() {
-
-        viewModel.getHomePage()
         viewModel.toastMsg.observe(viewLifecycleOwner) {
             Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
         }

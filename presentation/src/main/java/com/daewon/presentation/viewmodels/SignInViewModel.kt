@@ -54,12 +54,6 @@ class SignInViewModel @Inject constructor(
                 }
             }
         }
-
-    }
-
-    companion object {
-        private const val USER_ID = "id"
-        private const val USER_PW = "pass"
     }
 
 }

@@ -44,7 +44,6 @@ class SignInFragment : Fragment() {
 
             isPwEmpty.observe(viewLifecycleOwner) {
                 binding.pwEditText.error = getString(R.string.pw_empty_error_msg)
-//                Toast.makeText(context, R.string.pw_empty_error_msg, Toast.LENGTH_SHORT).show()
             }
 
             loginErrorMsg.observe(viewLifecycleOwner) {

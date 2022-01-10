@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.daewon.domain.model.HomePage
 import com.daewon.domain.model.PhotoDetail
 import com.daewon.domain.usecase.GetPhotoDetailUseCase
 import com.daewon.presentation.adapter.RecommendPhotoAdapter

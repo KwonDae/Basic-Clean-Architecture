@@ -1,5 +1,6 @@
 package com.daewon.presentation.photofeed
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,8 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.launch
+import javax.inject.Inject
+import javax.inject.Named
 
 @AndroidEntryPoint
 class PhotoFeedFragment : Fragment() {
@@ -35,16 +38,10 @@ class PhotoFeedFragment : Fragment() {
         context ?: return binding.root
 
         init()
-//        initSearch()
-
         return binding.root
     }
 
     private fun init() {
-        if(isFirst) {
-            isFirst = false
-            getData()
-        }
         binding.apply {
             vm = viewModel
             lifecycleOwner = viewLifecycleOwner
@@ -52,6 +49,11 @@ class PhotoFeedFragment : Fragment() {
             swipeRefreshLayout.setOnRefreshListener {
                 getData()
             }
+        }
+
+        if(isFirst) {
+            isFirst = false;
+            getData()
         }
     }
 
