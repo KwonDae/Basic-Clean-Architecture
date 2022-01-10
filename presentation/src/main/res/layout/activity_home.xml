@@ -2,6 +2,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="bl"
+            type="androidx.lifecycle.MutableLiveData&lt;Boolean>" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -26,6 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginEnd="12dp"
+                android:visibility="@{bl ? View.GONE : View.VISIBLE}"
                 android:text="가입"
                 android:theme="@style/Widget.MaterialComponents.Button.TextButton" />
 
@@ -36,7 +45,19 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginEnd="12dp"
+                android:visibility="@{bl ? View.GONE : View.VISIBLE}"
                 android:text="로그인"
+                android:theme="@style/Widget.MaterialComponents.Button.TextButton" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/signOut_button"
+                style="@style/TextAppearance.MaterialComponents.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="12dp"
+                android:visibility="@{bl ? View.VISIBLE : View.GONE}"
+                android:text="로그아웃"
                 android:theme="@style/Widget.MaterialComponents.Button.TextButton" />
 
         </com.google.android.material.appbar.MaterialToolbar>

@@ -3,17 +3,16 @@ package com.daewon.presentation.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.daewon.domain.model.SignInRes
 import com.daewon.domain.usecase.GetLoginUseCase
 import com.daewon.presentation.base.BaseViewModel
-import com.daewon.presentation.signin.EncryptedFileAuthenticator
+import com.daewon.presentation.signin.EncryptedSharedPreferenceManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class SignInViewModel @Inject constructor(
     private val getLoginUseCase: GetLoginUseCase,
-    private val encryptedFileAuthenticator: EncryptedFileAuthenticator
+    private val encryptedSharedPreferenceManager: EncryptedSharedPreferenceManager
 ) : BaseViewModel() {
 
     val id: MutableLiveData<String> = MutableLiveData("")
@@ -45,7 +44,7 @@ class SignInViewModel @Inject constructor(
                         // 로그인 성공
                         isLogin.value = true
                         _successLogin.value = Unit
-                        encryptedFileAuthenticator.signIn(id,pwd,viewModelScope)
+                        encryptedSharedPreferenceManager.signIn(id,pwd)
                     } else {
                         // 로그인 실패
                         it.errorMsg?.let { errorMsg ->

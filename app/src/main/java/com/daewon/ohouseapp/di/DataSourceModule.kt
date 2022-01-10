@@ -4,7 +4,6 @@ import com.daewon.data.remote.CardRemoteDataSource
 import com.daewon.data.remote.CardRemoteDataSourceImpl
 import com.daewon.data.signin.SignInRemoteDataSource
 import com.daewon.data.signin.SignInRemoteDataSourceImpl
-import com.daewon.presentation.signin.EncryptedFileAuthenticator
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

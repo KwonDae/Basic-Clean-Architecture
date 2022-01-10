@@ -6,18 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.daewon.presentation.R
 import com.daewon.presentation.databinding.FragmentSignInBinding
 import com.daewon.presentation.home.HomeViewPagerFragmentDirections
+import com.daewon.presentation.viewmodels.HomeViewModel
 import com.daewon.presentation.viewmodels.SignInViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SignInFragment: Fragment() {
     private val viewModel: SignInViewModel by viewModels()
+
     private lateinit var binding: FragmentSignInBinding
 
     override fun onCreateView(

@@ -30,6 +30,7 @@ class HomePageViewModel @Inject constructor(
     val isRefreshLoading = MutableLiveData<Boolean>()
 
     fun getHomePage() {
+        try{
         isRefreshLoading.value = true
         getHomePageDataUseCase(viewModelScope) {
             if(it.status) {
@@ -40,6 +41,9 @@ class HomePageViewModel @Inject constructor(
                 _toastMsg.value = "네트워크가 원할하지 않습니다."
                 isRefreshLoading.value = false
             }
+        }
+        }catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 
