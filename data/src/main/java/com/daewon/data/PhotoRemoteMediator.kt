@@ -13,6 +13,9 @@ import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 
+/**
+ * API 통신 + Database 으로 페이징 데이터 소스 가져오기
+*/
 const val PHOTO_STARTING_PAGE_INDEX = 1
 const val PHOTO_PER_PAGE_INDEX = 20
 

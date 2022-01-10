@@ -25,14 +25,6 @@
             android:id="@+id/action_signInFragment_self"
             app:destination="@id/sign_in_fragment"
             app:launchSingleTop="true" />
-        <action
-            android:id="@+id/action_sign_in_fragment_to_view_pager_fragment"
-            app:destination="@id/view_pager_fragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim" />
-        <action
-            android:id="@+id/action_sign_in_fragment_to_photo_detail_fragment"
-            app:destination="@id/photo_detail_fragment" />
     </fragment>
 
     <fragment

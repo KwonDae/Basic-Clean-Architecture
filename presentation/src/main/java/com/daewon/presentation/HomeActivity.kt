@@ -20,14 +20,14 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>(R.layout.activity_home) {
 
         isLogin.value = autoLoginCheck()
 
-        binding.signInButton.setOnClickListener {
-            val direction = HomeViewPagerFragmentDirections.actionGlobalSignInFragment()
-            findNavController(R.id.nav_host).navigate(direction)
-        }
-
         binding.apply {
             bl = isLogin
             lifecycleOwner = this@HomeActivity
+
+            signInButton.setOnClickListener {
+                val direction = HomeViewPagerFragmentDirections.actionGlobalSignInFragment()
+                findNavController(R.id.nav_host).navigate(direction)
+            }
 
             signOutButton.setOnClickListener {
                 isLogin.value = !viewModel.signOut()

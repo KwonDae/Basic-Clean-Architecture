@@ -63,20 +63,4 @@ class PhotoFeedFragment : Fragment() {
             }
         }
     }
-
-    // 새로고침이 완료되면(LoadState 가 refresh, NotLoading 인 경우) 스크롤 위치 재설정
-    // 검색을 초기화 할 때 흐름에서 데이터를 수집하고 initSearch 에서 새로운 데이터가 표시될 때 위치 0
-    private fun initSearch() {
-//        adapter.addLoadStateListener { loadState ->
-//            binding.photoFeedRecyclerView.isVisible = loadState.mediator?.refresh is LoadState.NotLoading
-//        }
-        lifecycleScope.launch {
-            adapter.loadStateFlow
-                // Only emit when REFRESH LoadState for RemoteMediator changes.
-                .distinctUntilChangedBy { it.refresh }
-                // Only react to cases where Remote REFRESH completes i.e., NotLoading.
-                .filter { it.refresh is LoadState.NotLoading }
-                .collect { binding.photoFeedRecyclerView.scrollToPosition(0)}
-        }
-    }
 }

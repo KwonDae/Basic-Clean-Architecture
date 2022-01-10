@@ -6,6 +6,7 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.daewon.domain.model.Card
 import com.daewon.domain.usecase.GetPhotoFeedUseCase
+import com.daewon.presentation.adapter.PHOTO_FEED_INDEX
 import com.daewon.presentation.adapter.PhotoFeedAdapter
 import com.daewon.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,12 +22,6 @@ class PhotoFeedViewModel @Inject constructor(
         const val FIRST_PAGE = 1
     }
 
-    private var currentPageValue: Int? = null
-    private var _currentSearchResult: Flow<PagingData<Card>>? = null
-
-    private val photoFeedAdapter = PhotoFeedAdapter()
-    fun getAdapter() = photoFeedAdapter
-
     val isRefreshLoading = MutableLiveData<Boolean>()
 
     fun searchPhoto(): Flow<PagingData<Card>> {
@@ -34,26 +29,8 @@ class PhotoFeedViewModel @Inject constructor(
         val newResult = getPhotoFeedUseCase
             .execute<PagingData<Card>>(page = FIRST_PAGE)
             .cachedIn(viewModelScope)
-        _currentSearchResult = newResult
         isRefreshLoading.value = false
         return newResult
     }
-
-
-//    // RemoteMediator
-//    fun searchPhoto(): Flow<PagingData<Card>> {
-//        isRefreshLoading.value = true
-//        val newResult = getPhotoFeedUseCase
-//            .execute<PagingData<TempEntity>>(page = FIRST_PAGE)
-//            .map { pagingData ->
-//                pagingData.map {
-//                    Card(it.userId, it.imgUrl, it.description, it.id)
-//                }
-//            }
-//            .cachedIn(viewModelScope)
-//        _currentSearchResult = newResult
-//        isRefreshLoading.value = false
-//        return newResult
-//    }
 
 }
