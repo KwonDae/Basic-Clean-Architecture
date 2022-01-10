@@ -33,6 +33,27 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+<!--            <androidx.core.widget.NestedScrollView-->
+<!--                android:id="@+id/nested_scrollView"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/photo_guide_textView"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.5"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                android:orientation="horizontal"-->
+<!--                >-->
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:id="@+id/photo_recyclerView"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_marginTop="8dp"-->
+
+<!--                    app:items="@{vm.homePageData.cards}"-->
+<!--                    app:listAdapter="@{vm.cardAdapter}"-->
+<!--                    app:orientation="@{androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL}"/>-->
+<!--            </androidx.core.widget.NestedScrollView>-->
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/photo_recyclerView"
                 android:layout_width="match_parent"

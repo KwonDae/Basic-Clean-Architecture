@@ -37,6 +37,8 @@ class HomePageFragment : Fragment() {
         viewModel.toastMsg.observe(viewLifecycleOwner) {
             Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
         }
+
+//        binding.photoRecyclerView.onHorizontalScrollListener(requireContext())
     }
 
 }

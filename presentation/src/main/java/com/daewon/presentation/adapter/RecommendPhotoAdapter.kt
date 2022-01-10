@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.daewon.domain.model.Card
 import com.daewon.presentation.databinding.ListItemPhotoBinding
-import com.daewon.presentation.home.HomeViewPagerFragmentDirections
 import com.daewon.presentation.photo.PhotoDetailFragmentDirections
 
 class RecommendPhotoAdapter: ListAdapter<Card, RecyclerView.ViewHolder>(RecommendCardDiffCallback()) {
