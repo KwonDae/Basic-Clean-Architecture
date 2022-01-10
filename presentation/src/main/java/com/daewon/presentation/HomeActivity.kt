@@ -1,12 +1,12 @@
-package com.daewon.presentation.home
+package com.daewon.presentation
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.navigation.findNavController
-import com.daewon.presentation.R
 import com.daewon.presentation.base.BaseActivity
 import com.daewon.presentation.base.BaseViewModel.Companion.isLogin
 import com.daewon.presentation.databinding.ActivityHomeBinding
+import com.daewon.presentation.home.HomeViewPagerFragmentDirections
 import com.daewon.presentation.viewmodels.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
