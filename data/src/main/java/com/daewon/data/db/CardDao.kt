@@ -14,7 +14,7 @@ interface CardDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(cards: List<CardEntity>)
 
-    @Query("SELECT * FROM card")
+    @Query("SELECT * FROM card ORDER BY id DESC")
     fun searchAllCards(): PagingSource<Int, Card>
 
     @Query("DELETE FROM card")

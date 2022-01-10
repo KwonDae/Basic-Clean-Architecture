@@ -7,8 +7,6 @@ import com.daewon.data.api.ApiService
 import com.daewon.domain.model.Card
 import javax.inject.Inject
 
-const val PHOTO_STARTING_PAGE_INDEX = 1
-
 class PhotoPagingSource @Inject constructor(
     private val service: ApiService,
 ): PagingSource<Int, Card>() {
