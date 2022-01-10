@@ -13,8 +13,8 @@ class CardConverter {
         return mapperToCard(cardEntity = cardEntity)
     }
 
-    @TypeConverter
-    fun modelToEntity(card: Card): CardEntity? {
-        return mapperToCardEntity(card = card)
-    }
+//    @TypeConverter
+//    fun modelToEntity(card: Card): CardEntity? {
+//        return mapperToCardEntity(card = card)
+//    }
 }

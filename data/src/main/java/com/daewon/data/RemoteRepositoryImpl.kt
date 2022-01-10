@@ -46,30 +46,30 @@ class RemoteRepositoryImpl @Inject constructor(
         return mapperToPhotoDetailData(result)
     }
 
-    override fun <T> getPhotoFeedData(page: Int): Flow<T> =
-        Pager(
-            config = PagingConfig(
-                enablePlaceholders = false,
-                pageSize = NETWORK_PAGE_SIZE
-            ),
-            pagingSourceFactory = { PhotoPagingSource(service = apiService) }
-        ).flow as Flow<T>
-
-
-    // RemoteMediator
-//    override fun <T> getPhotoFeedData(page: Int): Flow<T> {
-//        val pagingSourceFactory = { cardDatabase.cardsDao().searchAllCards() }
-//        @OptIn(ExperimentalPagingApi::class)
-//        return Pager(
+//    override fun <T> getPhotoFeedData(page: Int): Flow<T> =
+//        Pager(
 //            config = PagingConfig(
 //                enablePlaceholders = false,
 //                pageSize = NETWORK_PAGE_SIZE
 //            ),
-//            remoteMediator = PhotoRemoteMediator(
-//                apiService,
-//                cardDatabase
-//            ),
-//            pagingSourceFactory = pagingSourceFactory
+//            pagingSourceFactory = { PhotoPagingSource(service = apiService) }
 //        ).flow as Flow<T>
-//    }
+
+
+//     RemoteMediator
+    override fun <T> getPhotoFeedData(page: Int): Flow<T> {
+        val pagingSourceFactory = { cardDatabase.cardsDao().searchAllCards() }
+        @OptIn(ExperimentalPagingApi::class)
+        return Pager(
+            config = PagingConfig(
+                enablePlaceholders = false,
+                pageSize = NETWORK_PAGE_SIZE
+            ),
+            remoteMediator = PhotoRemoteMediator(
+                apiService,
+                cardDatabase
+            ),
+            pagingSourceFactory = pagingSourceFactory
+        ).flow as Flow<T>
+    }
 }

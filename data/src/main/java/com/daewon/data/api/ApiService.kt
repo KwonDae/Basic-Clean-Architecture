@@ -22,6 +22,6 @@ interface ApiService {
 
     // 사진피드 데이터 가져오기
     @GET("cards")
-    suspend fun getPhotoFeed(@Query("page") page: Int): PhotoFeedResponse
+    suspend fun getPhotoFeed(@Query("page") page: Int?): PhotoFeedResponse
 
 }
