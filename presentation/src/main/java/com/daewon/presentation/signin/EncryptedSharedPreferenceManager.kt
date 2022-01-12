@@ -8,7 +8,7 @@ import androidx.security.crypto.MasterKey
 import javax.inject.Inject
 
 class EncryptedSharedPreferenceManager @Inject constructor(
-    private val context: Context
+    context: Context
 ) {
     companion object {
         private const val NICKNAME_KEY = "ID"

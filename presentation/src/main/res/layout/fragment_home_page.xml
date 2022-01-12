@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="vm"
             type="com.daewon.presentation.viewmodels.HomePageViewModel" />
@@ -33,63 +33,68 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-<!--            <androidx.core.widget.NestedScrollView-->
-<!--                android:id="@+id/nested_scrollView"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/photo_guide_textView"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintHorizontal_bias="0.5"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                android:orientation="horizontal"-->
-<!--                >-->
-<!--                <androidx.recyclerview.widget.RecyclerView-->
-<!--                    android:id="@+id/photo_recyclerView"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:layout_marginTop="8dp"-->
-
-<!--                    app:items="@{vm.homePageData.cards}"-->
-<!--                    app:listAdapter="@{vm.cardAdapter}"-->
-<!--                    app:orientation="@{androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL}"/>-->
-<!--            </androidx.core.widget.NestedScrollView>-->
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/photo_recyclerView"
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nested_scroll_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@id/photo_guide_textView"
+                android:orientation="horizontal"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:items="@{vm.homePageData.cards}"
-                app:listAdapter="@{vm.cardAdapter}"
-                app:orientation="@{androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL}"/>
+                app:layout_constraintTop_toBottomOf="@id/photo_guide_textView">
+
+                <com.daewon.presentation.NestedScrollableHost
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/photo_recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:items="@{vm.homePageData.cards}"
+                        app:listAdapter="@{vm.cardAdapter}"
+                        app:orientation="@{androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL}" />
+
+                </com.daewon.presentation.NestedScrollableHost>
+            </androidx.core.widget.NestedScrollView>
 
             <View
                 android:id="@+id/line"
                 android:layout_width="match_parent"
                 android:layout_height="4dp"
-                android:background="@color/green"
                 android:layout_marginTop="24dp"
-                app:layout_constraintTop_toBottomOf="@id/photo_recyclerView">
+                android:background="@color/green"
+                app:layout_constraintTop_toBottomOf="@id/nested_scroll_layout">
 
             </View>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/user_recyclerView"
+            <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@id/line"
+                android:orientation="horizontal"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:items="@{vm.homePageData.users}"
-                app:listAdapter="@{vm.userAdapter}"
-                app:orientation="@{androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL}"/>
+                app:layout_constraintTop_toBottomOf="@id/line">
 
+                <com.daewon.presentation.NestedScrollableHost
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/user_recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:items="@{vm.homePageData.users}"
+                        app:listAdapter="@{vm.userAdapter}"
+                        app:orientation="@{androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL}" />
+
+                </com.daewon.presentation.NestedScrollableHost>
+            </androidx.core.widget.NestedScrollView>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
