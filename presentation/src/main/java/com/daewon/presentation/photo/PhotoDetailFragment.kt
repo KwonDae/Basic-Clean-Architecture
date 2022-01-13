@@ -16,6 +16,8 @@ class PhotoDetailFragment : Fragment() {
     private lateinit var binding: FragmentPhotoDetailBinding
     private val viewModel: PhotoDetailViewModel by viewModels()
     private val args: PhotoDetailFragmentArgs by navArgs()
+    private var isFirst: Boolean = true
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,7 +35,8 @@ class PhotoDetailFragment : Fragment() {
             binding.user = it.user
         }
 
-        if (savedInstanceState == null) {
+        if (isFirst) {
+            isFirst = false
             getData(args.id)
         }
 
