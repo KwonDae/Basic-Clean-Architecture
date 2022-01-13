@@ -1,6 +1,5 @@
 package com.daewon.presentation.photofeed
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,18 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.paging.LoadState
 import com.daewon.presentation.adapter.PhotoFeedAdapter
 import com.daewon.presentation.databinding.FragmentPhotoFeedBinding
 import com.daewon.presentation.viewmodels.PhotoFeedViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.distinctUntilChangedBy
-import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.launch
-import javax.inject.Inject
-import javax.inject.Named
 
 @AndroidEntryPoint
 class PhotoFeedFragment : Fragment() {
@@ -62,6 +56,9 @@ class PhotoFeedFragment : Fragment() {
         searchJob = lifecycleScope.launch {
             viewModel.searchPhoto().collectLatest {
                 adapter.submitData(it)
+                viewModel.isRefreshLoading.value?.let { boolean ->
+                    if(boolean) viewModel.isRefreshLoading.value = false
+                }
             }
         }
     }

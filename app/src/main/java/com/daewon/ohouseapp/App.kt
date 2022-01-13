@@ -2,6 +2,7 @@ package com.daewon.ohouseapp
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
+import timber.log.Timber
 
 @HiltAndroidApp
 class App : Application() {
@@ -13,6 +14,7 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
+        Timber.plant(Timber.DebugTree())
     }
 
 }

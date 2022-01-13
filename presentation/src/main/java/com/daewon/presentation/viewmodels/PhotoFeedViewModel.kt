@@ -1,6 +1,5 @@
 package com.daewon.presentation.viewmodels
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
@@ -21,14 +20,13 @@ class PhotoFeedViewModel @Inject constructor(
         const val FIRST_PAGE = 1
     }
 
-    val isRefreshLoading = MutableLiveData<Boolean>()
+    val isRefreshLoading = MutableLiveData<Boolean>(false)
 
     fun searchPhoto(): Flow<PagingData<Card>> {
         isRefreshLoading.value = true
         val newResult = getPhotoFeedUseCase
             .execute<PagingData<Card>>(page = FIRST_PAGE)
             .cachedIn(viewModelScope)
-        isRefreshLoading.value = false
         return newResult
     }
 

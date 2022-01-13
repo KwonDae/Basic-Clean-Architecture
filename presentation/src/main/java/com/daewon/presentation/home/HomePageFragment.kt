@@ -11,7 +11,6 @@ import com.daewon.presentation.databinding.FragmentHomePageBinding
 import com.daewon.presentation.viewmodels.HomePageViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-const val TAG = "로그"
 @AndroidEntryPoint
 class HomePageFragment : Fragment() {
     private lateinit var binding: FragmentHomePageBinding
