@@ -1,6 +1,8 @@
 package com.daewon.presentation.viewmodels
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
@@ -8,6 +10,7 @@ import com.daewon.domain.model.Card
 import com.daewon.domain.usecase.GetPhotoFeedUseCase
 import com.daewon.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -27,6 +30,7 @@ class PhotoFeedViewModel @Inject constructor(
         val newResult = getPhotoFeedUseCase
             .execute<PagingData<Card>>(page = FIRST_PAGE)
             .cachedIn(viewModelScope)
+        var liveData = newResult.asLiveData(Dispatchers.IO)
         return newResult
     }
 
