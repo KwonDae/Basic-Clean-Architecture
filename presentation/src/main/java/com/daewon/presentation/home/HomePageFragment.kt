@@ -7,12 +7,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.daewon.domain.model.Card
 import com.daewon.presentation.databinding.FragmentHomePageBinding
 import com.daewon.presentation.viewmodels.HomePageViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.flow
 
 @AndroidEntryPoint
 class HomePageFragment : Fragment() {
