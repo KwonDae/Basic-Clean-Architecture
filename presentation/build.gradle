@@ -97,4 +97,6 @@ dependencies {
 
     // encryptedSharedPreference
     implementation "androidx.security:security-crypto:$encryptedSharedPreferenceVersion"
+
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.8.1'
 }

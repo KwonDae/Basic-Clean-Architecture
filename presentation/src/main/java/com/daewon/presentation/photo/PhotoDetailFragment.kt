@@ -13,7 +13,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class PhotoDetailFragment : Fragment() {
-    private lateinit var binding: FragmentPhotoDetailBinding
+    private var _binding: FragmentPhotoDetailBinding? = null
+    private val binding get() = _binding!!
     private val viewModel: PhotoDetailViewModel by viewModels()
     private val args: PhotoDetailFragmentArgs by navArgs()
     private var isFirst: Boolean = true
@@ -24,7 +25,7 @@ class PhotoDetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentPhotoDetailBinding.inflate(inflater, container, false).apply {
+        _binding = FragmentPhotoDetailBinding.inflate(inflater, container, false).apply {
             vm = viewModel
             lifecycleOwner = viewLifecycleOwner
         }
@@ -45,6 +46,11 @@ class PhotoDetailFragment : Fragment() {
 
     private fun getData(cardId: Int) {
         viewModel.getPhotoDetail(cardId)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

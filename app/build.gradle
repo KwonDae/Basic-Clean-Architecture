@@ -73,4 +73,6 @@ dependencies {
 
     // Room
     implementation "androidx.room:room-runtime:$roomVersion"
+
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.8.1'
 }

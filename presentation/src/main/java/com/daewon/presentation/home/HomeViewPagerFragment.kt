@@ -14,14 +14,15 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeViewPagerFragment : Fragment() {
-    private lateinit var binding: FragmentViewPagerBinding
+    private var _binding: FragmentViewPagerBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentViewPagerBinding.inflate(inflater, container, false)
+        _binding = FragmentViewPagerBinding.inflate(inflater, container, false)
         context ?: return binding.root
 
         init()
@@ -45,6 +46,11 @@ class HomeViewPagerFragment : Fragment() {
             tab.text = getTabTitle(position)
         }.attach()
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

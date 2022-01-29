@@ -13,7 +13,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomePageFragment : Fragment() {
-    private lateinit var binding: FragmentHomePageBinding
+    private var _binding: FragmentHomePageBinding? = null
+    private val binding get() = _binding!!
     private val viewModel: HomePageViewModel by viewModels()
 
 
@@ -22,7 +23,7 @@ class HomePageFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentHomePageBinding.inflate(inflater, container, false).apply {
+        _binding = FragmentHomePageBinding.inflate(inflater, container, false).apply {
             vm = viewModel
             lifecycleOwner = viewLifecycleOwner
         }
@@ -38,4 +39,8 @@ class HomePageFragment : Fragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
