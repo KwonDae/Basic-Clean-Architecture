@@ -6,8 +6,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class GetHomePageDataUseCase(private val remoteRepository: RemoteRepository) {
+class GetHomePageDataUseCase @Inject constructor(private val remoteRepository: RemoteRepository) {
 
     operator fun invoke(
         scope: CoroutineScope,
