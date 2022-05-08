@@ -9,8 +9,7 @@ import javax.inject.Inject
 
 class CardRemoteDataSourceImpl @Inject constructor(
     private val apiService: ApiService
-) :
-    CardRemoteDataSource {
+) : CardRemoteDataSource {
 
     override suspend fun getHomePageData(): HomePageResponse {
         return apiService.getHomePageData()

@@ -7,8 +7,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class GetLoginUseCase(private val remoteRepository: RemoteRepository) {
+class GetLoginUseCase @Inject constructor(private val remoteRepository: RemoteRepository) {
 
     operator fun invoke(
         id: String,
