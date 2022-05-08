@@ -36,6 +36,8 @@ class HomePageFragment : Fragment() {
         viewModel.toastMsg.observe(viewLifecycleOwner) {
             Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
         }
+
+
     }
 
     override fun onDestroyView() {
