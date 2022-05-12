@@ -18,7 +18,11 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class PhotoFeedFragment : Fragment() {
     private val viewModel: PhotoFeedViewModel by viewModels()
-    private lateinit var binding: FragmentPhotoFeedBinding
+
+    private var _binding: FragmentPhotoFeedBinding? = null
+
+    private val binding get() = _binding!!
+
     private var searchJob: Job? = null
     private val adapter = PhotoFeedAdapter()
     private var isFirst: Boolean = true
@@ -28,7 +32,7 @@ class PhotoFeedFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentPhotoFeedBinding.inflate(inflater, container, false)
+        _binding = FragmentPhotoFeedBinding.inflate(inflater, container, false)
         context ?: return binding.root
 
         init()
@@ -61,5 +65,10 @@ class PhotoFeedFragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -13,8 +13,10 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class PhotoDetailFragment : Fragment() {
+
     private var _binding: FragmentPhotoDetailBinding? = null
     private val binding get() = _binding!!
+
     private val viewModel: PhotoDetailViewModel by viewModels()
     private val args: PhotoDetailFragmentArgs by navArgs()
     private var isFirst: Boolean = true
@@ -50,7 +52,13 @@ class PhotoDetailFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        _binding!!.refreshLayout.isEnabled = false
         _binding = null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        _binding!!.refreshLayout.isEnabled = true
     }
 
 }

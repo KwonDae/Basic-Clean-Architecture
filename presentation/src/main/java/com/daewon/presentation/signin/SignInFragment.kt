@@ -17,14 +17,17 @@ import dagger.hilt.android.AndroidEntryPoint
 class SignInFragment : Fragment() {
     private val viewModel: SignInViewModel by viewModels()
 
-    private lateinit var binding: FragmentSignInBinding
+    private var _binding: FragmentSignInBinding? = null
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSignInBinding.inflate(inflater, container, false).apply {
+        _binding = FragmentSignInBinding.inflate(inflater, container, false).apply {
             vm = viewModel
             lifecycleOwner = viewLifecycleOwner
         }
@@ -54,6 +57,11 @@ class SignInFragment : Fragment() {
                 findNavController().popBackStack()
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
 }
