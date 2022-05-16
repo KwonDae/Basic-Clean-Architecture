@@ -15,27 +15,27 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object UseCaseModule {
 
-    @Singleton
-    @Provides
-    fun provideGetHomePageDataUseCase(repository: RemoteRepository): GetHomePageDataUseCase {
-        return GetHomePageDataUseCase(repository)
-    }
-
-    @Singleton
-    @Provides
-    fun provideGetLoginUseCase(repository: RemoteRepository): GetLoginUseCase {
-        return GetLoginUseCase(repository)
-    }
-
-    @Singleton
-    @Provides
-    fun provideGetPhotoDetailUseCase(repository: RemoteRepository): GetPhotoDetailUseCase {
-        return GetPhotoDetailUseCase(repository)
-    }
-
-    @Singleton
-    @Provides
-    fun provideGetPhotoFeedUseCase(repository: RemoteRepository): GetPhotoFeedUseCase {
-        return GetPhotoFeedUseCase(repository)
-    }
+//    @Singleton
+//    @Provides
+//    fun provideGetHomePageDataUseCase(repository: RemoteRepository): GetHomePageDataUseCase {
+//        return GetHomePageDataUseCase(repository)
+//    }
+//
+//    @Singleton
+//    @Provides
+//    fun provideGetLoginUseCase(repository: RemoteRepository): GetLoginUseCase {
+//        return GetLoginUseCase(repository)
+//    }
+//
+//    @Singleton
+//    @Provides
+//    fun provideGetPhotoDetailUseCase(repository: RemoteRepository): GetPhotoDetailUseCase {
+//        return GetPhotoDetailUseCase(repository)
+//    }
+//
+//    @Singleton
+//    @Provides
+//    fun provideGetPhotoFeedUseCase(repository: RemoteRepository): GetPhotoFeedUseCase {
+//        return GetPhotoFeedUseCase(repository)
+//    }
 }
